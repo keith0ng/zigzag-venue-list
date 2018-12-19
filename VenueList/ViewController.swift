@@ -17,12 +17,14 @@ let API_VERSION = "20181219"
 class ViewController: UIViewController {
 
   let locManager = CLLocationManager()
+  var currentLocation: CLLocation?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     locManager.requestWhenInUseAuthorization()
     locManager.delegate = self
+    locManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     
     let lat = 14.558929
     let long = 121.01643113
@@ -68,11 +70,14 @@ class ViewController: UIViewController {
 extension ViewController: CLLocationManagerDelegate {
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    // TODO: set current location variable
+    currentLocation = manager.location
   }
   
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-    // TODO: set current location variable
+    let locationAuthStatus = CLLocationManager.authorizationStatus()
+    if(locationAuthStatus == .authorizedWhenInUse || locationAuthStatus ==  .authorizedAlways){
+      currentLocation = manager.location
+    }
   }
 
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
