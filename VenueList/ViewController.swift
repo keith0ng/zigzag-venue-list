@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     locManager.requestWhenInUseAuthorization()
+    locManager.delegate = self
     
     let lat = 14.558929
     let long = 121.01643113
@@ -62,3 +63,19 @@ class ViewController: UIViewController {
   }
 }
 
+// MARK: CLLocationManagerDelegate Methods
+
+extension ViewController: CLLocationManagerDelegate {
+  
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    // TODO: set current location variable
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    // TODO: set current location variable
+  }
+
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    // TODO: return error when necessary
+  }
+}
