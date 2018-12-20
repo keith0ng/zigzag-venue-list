@@ -11,6 +11,9 @@
 		DE41282221CB3D250003C1C3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41282121CB3D250003C1C3 /* UIView.swift */; };
 		DE92D5E621CB48AB00C20DD6 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92D5E521CB48AB00C20DD6 /* Venue.swift */; };
 		DE92D5EA21CB825000C20DD6 /* GetVenueResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92D5E921CB825000C20DD6 /* GetVenueResponse.swift */; };
+		DE92D5EC21CB9C3700C20DD6 /* VenueDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92D5EB21CB9C3700C20DD6 /* VenueDetailsViewController.swift */; };
+		DE92D5EE21CB9FAE00C20DD6 /* VenueDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92D5ED21CB9FAE00C20DD6 /* VenueDetailsView.swift */; };
+		DE92D5F021CB9FBD00C20DD6 /* VenueDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE92D5EF21CB9FBD00C20DD6 /* VenueDetailsView.xib */; };
 		DE985DD521CB3B5900116A41 /* VenueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE985DD221CB3B5900116A41 /* VenueListViewController.swift */; };
 		DE985DD621CB3B5900116A41 /* VenueListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE985DD421CB3B5900116A41 /* VenueListView.swift */; };
 		DEDD47C921CA26EC00435F2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD47C821CA26EC00435F2E /* AppDelegate.swift */; };
@@ -24,6 +27,9 @@
 		DE41282121CB3D250003C1C3 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		DE92D5E521CB48AB00C20DD6 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		DE92D5E921CB825000C20DD6 /* GetVenueResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueResponse.swift; sourceTree = "<group>"; };
+		DE92D5EB21CB9C3700C20DD6 /* VenueDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailsViewController.swift; sourceTree = "<group>"; };
+		DE92D5ED21CB9FAE00C20DD6 /* VenueDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailsView.swift; sourceTree = "<group>"; };
+		DE92D5EF21CB9FBD00C20DD6 /* VenueDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VenueDetailsView.xib; sourceTree = "<group>"; };
 		DE985DD221CB3B5900116A41 /* VenueListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueListViewController.swift; sourceTree = "<group>"; };
 		DE985DD421CB3B5900116A41 /* VenueListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueListView.swift; sourceTree = "<group>"; };
 		DEDD47C521CA26EC00435F2E /* VenueList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenueList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				DE985DD221CB3B5900116A41 /* VenueListViewController.swift */,
+				DE92D5EB21CB9C3700C20DD6 /* VenueDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -75,6 +82,8 @@
 			children = (
 				DE985DD421CB3B5900116A41 /* VenueListView.swift */,
 				DE41281E21CB3C7C0003C1C3 /* VenueListView.xib */,
+				DE92D5ED21CB9FAE00C20DD6 /* VenueDetailsView.swift */,
+				DE92D5EF21CB9FBD00C20DD6 /* VenueDetailsView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +181,7 @@
 			files = (
 				DE41281F21CB3C7C0003C1C3 /* VenueListView.xib in Resources */,
 				DEDD47D321CA26EC00435F2E /* LaunchScreen.storyboard in Resources */,
+				DE92D5F021CB9FBD00C20DD6 /* VenueDetailsView.xib in Resources */,
 				DEDD47D021CA26EC00435F2E /* Assets.xcassets in Resources */,
 				DEDD47CE21CA26EC00435F2E /* Main.storyboard in Resources */,
 			);
@@ -185,9 +195,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE41282221CB3D250003C1C3 /* UIView.swift in Sources */,
+				DE92D5EC21CB9C3700C20DD6 /* VenueDetailsViewController.swift in Sources */,
 				DE92D5E621CB48AB00C20DD6 /* Venue.swift in Sources */,
 				DE92D5EA21CB825000C20DD6 /* GetVenueResponse.swift in Sources */,
 				DE985DD521CB3B5900116A41 /* VenueListViewController.swift in Sources */,
+				DE92D5EE21CB9FAE00C20DD6 /* VenueDetailsView.swift in Sources */,
 				DE985DD621CB3B5900116A41 /* VenueListView.swift in Sources */,
 				DEDD47C921CA26EC00435F2E /* AppDelegate.swift in Sources */,
 			);

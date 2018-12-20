@@ -91,7 +91,8 @@ extension VenueListViewController: UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    // TODO: Handle cell tap
+    let venueDetailsVC = VenueDetailsViewController()
+    navigationController?.pushViewController(venueDetailsVC, animated: true)
   }
 }
 
