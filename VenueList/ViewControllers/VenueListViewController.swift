@@ -23,7 +23,9 @@ class VenueListViewController: UIViewController {
   
   var venueArray: [Venue]? = [] {
     didSet {
-        mainView?.venueTableView.reloadData()
+      DispatchQueue.main.async {
+        self.mainView?.venueTableView.reloadData()
+      }
     }
   }
   
@@ -42,7 +44,7 @@ class VenueListViewController: UIViewController {
     locManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
   }
 
-  func searchVenue(withLat lat:String, long: String) {
+  private func searchVenue(withLat lat:String, long: String) {
     let url = "\(BASE_REQUEST_URL)/venues/search?ll=\(lat),\(long)&client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=\(API_VERSION)"
     
     let request = NSMutableURLRequest(url: URL(string: url)!)
@@ -54,36 +56,25 @@ class VenueListViewController: UIViewController {
     request.addValue("application/json", forHTTPHeaderField: "Accept")
     
     let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, err -> Void in
-      let json = self.dataToJSON(data: data)
-      let response = json!["response"] as? [String: Any]
-      let venues = response!["venues"] as? [Any]
-      
-      var tempArray: [Venue]? = []
-      for index in 0...(venues!.count - 1) {
-        let venueDictionary = venues![index] as? [String: Any]
-        let venue = Venue(dictionary: venueDictionary!)
-        tempArray?.append(venue)
-      }
-      
-      self.venueArray = tempArray
+      self.venueArray = self.getVenuesFromData(data)
     })
     
     task.resume()
   }
   
-  func dataToJSON(data: Data?) -> [String: Any]? {
-    var jsonReturn: [String: Any]?
-    let errorReturn = ["Error":"Error parsing"]
+  private func getVenuesFromData(_ data: Data?) -> [Venue]? {
     if let _ = data {
       do {
-        try jsonReturn = JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]
-        return jsonReturn
+        var venueResponse: GetVenueResponse?
+        try venueResponse = JSONDecoder().decode(GetVenueResponse.self, from: data!)
+        return venueResponse?.response?.venues
       } catch {
-        return errorReturn
+        return []
       }
     }
-    return errorReturn
+    return []
   }
+
 }
 
 
@@ -91,10 +82,11 @@ class VenueListViewController: UIViewController {
 
 extension VenueListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = UITableViewCell(style: .default, reuseIdentifier: "cellReuseIdentifier")
+    let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellReuseIdentifier")
     let row = indexPath.row
     let venue = venueArray![row]
     cell.textLabel?.text = venue.name!
+    cell.detailTextLabel?.text = "\(venue.location!.distance!)m"
     return cell
   }
   

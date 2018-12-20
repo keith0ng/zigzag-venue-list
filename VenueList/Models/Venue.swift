@@ -10,19 +10,13 @@ import Foundation
 
 struct Venue: Codable {
   var name: String? = ""
-  var address: String? = ""
-  var distance: Int? = 0
+  var location: Location?
   
-  init(dictionary: [String: Any]) {
-    let location = dictionary["location"] as? [String: Any]
-    
-    name = dictionary["name"] as? String
-    address = returnFormattedAddress(location!)
-    distance = location!["distance"] as? Int
-  }
-  
-  private func returnFormattedAddress(_ location: [String: Any]?) -> String {
-    let baseAddress = location!["formattedAddress"] as? [String]
-    return baseAddress!.joined(separator: ",")
+  struct Location: Codable {
+    var formattedAddress: [String?]
+    var distance: Int?
   }
 }
+
+
+

@@ -10,6 +10,7 @@
 		DE41281F21CB3C7C0003C1C3 /* VenueListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE41281E21CB3C7C0003C1C3 /* VenueListView.xib */; };
 		DE41282221CB3D250003C1C3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41282121CB3D250003C1C3 /* UIView.swift */; };
 		DE92D5E621CB48AB00C20DD6 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92D5E521CB48AB00C20DD6 /* Venue.swift */; };
+		DE92D5EA21CB825000C20DD6 /* GetVenueResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92D5E921CB825000C20DD6 /* GetVenueResponse.swift */; };
 		DE985DD521CB3B5900116A41 /* VenueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE985DD221CB3B5900116A41 /* VenueListViewController.swift */; };
 		DE985DD621CB3B5900116A41 /* VenueListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE985DD421CB3B5900116A41 /* VenueListView.swift */; };
 		DEDD47C921CA26EC00435F2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD47C821CA26EC00435F2E /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 		DE41281E21CB3C7C0003C1C3 /* VenueListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VenueListView.xib; sourceTree = "<group>"; };
 		DE41282121CB3D250003C1C3 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		DE92D5E521CB48AB00C20DD6 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		DE92D5E921CB825000C20DD6 /* GetVenueResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueResponse.swift; sourceTree = "<group>"; };
 		DE985DD221CB3B5900116A41 /* VenueListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueListViewController.swift; sourceTree = "<group>"; };
 		DE985DD421CB3B5900116A41 /* VenueListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueListView.swift; sourceTree = "<group>"; };
 		DEDD47C521CA26EC00435F2E /* VenueList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenueList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				DE92D5E521CB48AB00C20DD6 /* Venue.swift */,
+				DE92D5E921CB825000C20DD6 /* GetVenueResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			files = (
 				DE41282221CB3D250003C1C3 /* UIView.swift in Sources */,
 				DE92D5E621CB48AB00C20DD6 /* Venue.swift in Sources */,
+				DE92D5EA21CB825000C20DD6 /* GetVenueResponse.swift in Sources */,
 				DE985DD521CB3B5900116A41 /* VenueListViewController.swift in Sources */,
 				DE985DD621CB3B5900116A41 /* VenueListView.swift in Sources */,
 				DEDD47C921CA26EC00435F2E /* AppDelegate.swift in Sources */,
