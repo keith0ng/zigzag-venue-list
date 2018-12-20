@@ -20,13 +20,21 @@ class VenueListViewController: UIViewController {
 
   let locManager = CLLocationManager()
   var currentLocation: CLLocation?
-
+  
+  var venueArray: [Venue]? = [] {
+    didSet {
+        mainView?.venueTableView.reloadData()
+    }
+  }
+  
   var mainView: VenueListView?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     mainView = VenueListView()
+    mainView?.venueTableView.delegate = self
+    mainView?.venueTableView.dataSource = self
     view = mainView
     
     locManager.delegate = self
@@ -47,7 +55,17 @@ class VenueListViewController: UIViewController {
     
     let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, err -> Void in
       let json = self.dataToJSON(data: data)
-      print("Sample Data: \(json!)")
+      let response = json!["response"] as? [String: Any]
+      let venues = response!["venues"] as? [Any]
+      
+      var tempArray: [Venue]? = []
+      for index in 0...(venues!.count - 1) {
+        let venueDictionary = venues![index] as? [String: Any]
+        let venue = Venue(dictionary: venueDictionary!)
+        tempArray?.append(venue)
+      }
+      
+      self.venueArray = tempArray
     })
     
     task.resume()
@@ -65,6 +83,35 @@ class VenueListViewController: UIViewController {
       }
     }
     return errorReturn
+  }
+}
+
+
+// MARK: UITableViewDelegate Methods
+
+extension VenueListViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = UITableViewCell(style: .default, reuseIdentifier: "cellReuseIdentifier")
+    let row = indexPath.row
+    let venue = venueArray![row]
+    cell.textLabel?.text = venue.name!
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    // TODO: Handle cell tap
+  }
+}
+
+// MARK: UITableViewDataSource Methods
+
+extension VenueListViewController: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return venueArray!.count
+  }
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
   }
 }
 
