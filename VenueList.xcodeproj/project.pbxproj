@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE985DD521CB3B5900116A41 /* VenueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE985DD221CB3B5900116A41 /* VenueListViewController.swift */; };
+		DE985DD621CB3B5900116A41 /* VenueListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE985DD421CB3B5900116A41 /* VenueListView.swift */; };
 		DEDD47C921CA26EC00435F2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD47C821CA26EC00435F2E /* AppDelegate.swift */; };
-		DEDD47CB21CA26EC00435F2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD47CA21CA26EC00435F2E /* ViewController.swift */; };
 		DEDD47CE21CA26EC00435F2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD47CC21CA26EC00435F2E /* Main.storyboard */; };
 		DEDD47D021CA26EC00435F2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDD47CF21CA26EC00435F2E /* Assets.xcassets */; };
 		DEDD47D321CA26EC00435F2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD47D121CA26EC00435F2E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE985DD221CB3B5900116A41 /* VenueListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueListViewController.swift; sourceTree = "<group>"; };
+		DE985DD421CB3B5900116A41 /* VenueListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueListView.swift; sourceTree = "<group>"; };
 		DEDD47C521CA26EC00435F2E /* VenueList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenueList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDD47C821CA26EC00435F2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DEDD47CA21CA26EC00435F2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DEDD47CD21CA26EC00435F2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DEDD47CF21CA26EC00435F2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDD47D221CA26EC00435F2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +37,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE985DD121CB3B5900116A41 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DE985DD221CB3B5900116A41 /* VenueListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DE985DD321CB3B5900116A41 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE985DD421CB3B5900116A41 /* VenueListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DEDD47BC21CA26EC00435F2E = {
 			isa = PBXGroup;
 			children = (
@@ -54,8 +72,9 @@
 		DEDD47C721CA26EC00435F2E /* VenueList */ = {
 			isa = PBXGroup;
 			children = (
+				DE985DD121CB3B5900116A41 /* ViewControllers */,
+				DE985DD321CB3B5900116A41 /* Views */,
 				DEDD47C821CA26EC00435F2E /* AppDelegate.swift */,
-				DEDD47CA21CA26EC00435F2E /* ViewController.swift */,
 				DEDD47CC21CA26EC00435F2E /* Main.storyboard */,
 				DEDD47CF21CA26EC00435F2E /* Assets.xcassets */,
 				DEDD47D121CA26EC00435F2E /* LaunchScreen.storyboard */,
@@ -136,7 +155,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEDD47CB21CA26EC00435F2E /* ViewController.swift in Sources */,
+				DE985DD521CB3B5900116A41 /* VenueListViewController.swift in Sources */,
+				DE985DD621CB3B5900116A41 /* VenueListView.swift in Sources */,
 				DEDD47C921CA26EC00435F2E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

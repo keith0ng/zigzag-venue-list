@@ -13,8 +13,10 @@ let BASE_REQUEST_URL = "https://api.foursquare.com/v2"
 let CLIENT_ID = "GV3MMILBCDYQBQMAQN45JCYUENGJU1AVFFVFX3RSIV4FCU0C"
 let CLIENT_SECRET = "PFO01BN4UHZDH5VJJOJNFK34YTWSEJJIX0LVP1HRN0R2WZNY"
 let API_VERSION = "20181219"
+let TEST_LAT = 14.558929
+let TEST_LONG = 121.01643113
 
-class ViewController: UIViewController {
+class VenueListViewController: UIViewController {
 
   let locManager = CLLocationManager()
   var currentLocation: CLLocation?
@@ -22,13 +24,10 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    locManager.requestWhenInUseAuthorization()
     locManager.delegate = self
+    locManager.requestWhenInUseAuthorization()
     locManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     
-    let lat = 14.558929
-    let long = 121.01643113
-    searchVenue(withLat: "\(lat)", long: "\(long)")
   }
 
   func searchVenue(withLat lat:String, long: String) {
@@ -67,7 +66,7 @@ class ViewController: UIViewController {
 
 // MARK: CLLocationManagerDelegate Methods
 
-extension ViewController: CLLocationManagerDelegate {
+extension VenueListViewController: CLLocationManagerDelegate {
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     currentLocation = manager.location
@@ -77,6 +76,11 @@ extension ViewController: CLLocationManagerDelegate {
     let locationAuthStatus = CLLocationManager.authorizationStatus()
     if(locationAuthStatus == .authorizedWhenInUse || locationAuthStatus ==  .authorizedAlways){
       currentLocation = manager.location
+      
+      let lat = currentLocation?.coordinate.latitude
+      let long = currentLocation?.coordinate.longitude
+      
+      searchVenue(withLat: "\(lat!)", long: "\(long!)")
     }
   }
 
