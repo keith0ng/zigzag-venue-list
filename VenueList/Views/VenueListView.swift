@@ -10,12 +10,25 @@ import UIKit
 
 class VenueListView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
+  @IBOutlet weak var venueTableView: UITableView!
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    setupView()
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    setupView()
+  }
+  
+  override func prepareForInterfaceBuilder() {
+    super.prepareForInterfaceBuilder()
+    setupView()
+  }
+  
+  func setupView() {
+    let viewFromNib = viewFromOwnedNib()
+    addSubviewAndFill(viewFromNib)
+  }
 }

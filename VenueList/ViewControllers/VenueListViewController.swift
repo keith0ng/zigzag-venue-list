@@ -20,14 +20,18 @@ class VenueListViewController: UIViewController {
 
   let locManager = CLLocationManager()
   var currentLocation: CLLocation?
+
+  var mainView: VenueListView?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    mainView = VenueListView()
+    view = mainView
+    
     locManager.delegate = self
     locManager.requestWhenInUseAuthorization()
     locManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-    
   }
 
   func searchVenue(withLat lat:String, long: String) {

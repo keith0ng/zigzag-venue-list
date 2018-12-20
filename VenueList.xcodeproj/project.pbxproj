@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE41281F21CB3C7C0003C1C3 /* VenueListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE41281E21CB3C7C0003C1C3 /* VenueListView.xib */; };
+		DE41282221CB3D250003C1C3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41282121CB3D250003C1C3 /* UIView.swift */; };
 		DE985DD521CB3B5900116A41 /* VenueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE985DD221CB3B5900116A41 /* VenueListViewController.swift */; };
 		DE985DD621CB3B5900116A41 /* VenueListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE985DD421CB3B5900116A41 /* VenueListView.swift */; };
 		DEDD47C921CA26EC00435F2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD47C821CA26EC00435F2E /* AppDelegate.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE41281E21CB3C7C0003C1C3 /* VenueListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VenueListView.xib; sourceTree = "<group>"; };
+		DE41282121CB3D250003C1C3 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		DE985DD221CB3B5900116A41 /* VenueListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueListViewController.swift; sourceTree = "<group>"; };
 		DE985DD421CB3B5900116A41 /* VenueListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueListView.swift; sourceTree = "<group>"; };
 		DEDD47C521CA26EC00435F2E /* VenueList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenueList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE41282021CB3D110003C1C3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DE41282121CB3D250003C1C3 /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DE985DD121CB3B5900116A41 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -49,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				DE985DD421CB3B5900116A41 /* VenueListView.swift */,
+				DE41281E21CB3C7C0003C1C3 /* VenueListView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -72,6 +85,7 @@
 		DEDD47C721CA26EC00435F2E /* VenueList */ = {
 			isa = PBXGroup;
 			children = (
+				DE41282021CB3D110003C1C3 /* Extensions */,
 				DE985DD121CB3B5900116A41 /* ViewControllers */,
 				DE985DD321CB3B5900116A41 /* Views */,
 				DEDD47C821CA26EC00435F2E /* AppDelegate.swift */,
@@ -142,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE41281F21CB3C7C0003C1C3 /* VenueListView.xib in Resources */,
 				DEDD47D321CA26EC00435F2E /* LaunchScreen.storyboard in Resources */,
 				DEDD47D021CA26EC00435F2E /* Assets.xcassets in Resources */,
 				DEDD47CE21CA26EC00435F2E /* Main.storyboard in Resources */,
@@ -155,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE41282221CB3D250003C1C3 /* UIView.swift in Sources */,
 				DE985DD521CB3B5900116A41 /* VenueListViewController.swift in Sources */,
 				DE985DD621CB3B5900116A41 /* VenueListView.swift in Sources */,
 				DEDD47C921CA26EC00435F2E /* AppDelegate.swift in Sources */,
