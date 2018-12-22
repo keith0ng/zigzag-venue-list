@@ -20,16 +20,10 @@ class VenueDetailsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    populateDetails()
+    mainView?.setupLabels(withVenue: venue)
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-  }
-  
-  private func populateDetails() {
-    mainView?.venueNameLabel.text = venue?.name
-    let address = venue?.location?.formattedAddress?.joined(separator: ",")
-    mainView?.venueAddressLabel.text = address
   }
 }

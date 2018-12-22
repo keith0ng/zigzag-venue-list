@@ -32,4 +32,11 @@ class VenueDetailsView: UIView {
     let viewFromNib = viewFromOwnedNib()
     addSubviewAndFill(viewFromNib)
   }
+  
+  func setupLabels(withVenue venue: Venue?) {
+    venueNameLabel.text = venue?.name
+    
+    let address = venue?.location?.formattedAddress?.joined(separator: ", ")
+    venueAddressLabel.text = address
+  }
 }
