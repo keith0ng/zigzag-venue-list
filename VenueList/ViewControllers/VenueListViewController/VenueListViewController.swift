@@ -48,8 +48,10 @@ class VenueListViewController: UIViewController {
     locManager.requestWhenInUseAuthorization()
     locManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
   }
+  
+  // MARK: Helper Methods
 
-  private func searchVenue(withLat lat:String, long: String) {
+  func searchVenue(withLat lat:String, long: String) {
     let url = "\(BASE_REQUEST_URL)/venues/search?ll=\(lat),\(long)&client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=\(API_VERSION)"
     
     let request = NSMutableURLRequest(url: URL(string: url)!)
@@ -80,61 +82,4 @@ class VenueListViewController: UIViewController {
     return []
   }
 
-}
-
-
-// MARK: UITableViewDelegate Methods
-
-extension VenueListViewController: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellReuseIdentifier")
-    let row = indexPath.row
-    let venue = venueArray![row]
-    cell.textLabel?.text = venue.name!
-    cell.detailTextLabel?.text = "\(venue.location!.distance!)m"
-    return cell
-  }
-  
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let venueDetailsVC = VenueDetailsViewController()
-    venueDetailsVC.venue = venueArray![indexPath.row]
-    navigationController?.pushViewController(venueDetailsVC, animated: true)
-  }
-}
-
-// MARK: UITableViewDataSource Methods
-
-extension VenueListViewController: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return venueArray!.count
-  }
-  
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
-  }
-}
-
-// MARK: CLLocationManagerDelegate Methods
-
-extension VenueListViewController: CLLocationManagerDelegate {
-  
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    currentLocation = manager.location
-  }
-  
-  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-    let locationAuthStatus = CLLocationManager.authorizationStatus()
-    if(locationAuthStatus == .authorizedWhenInUse || locationAuthStatus ==  .authorizedAlways){
-      currentLocation = manager.location
-      
-      let lat = currentLocation?.coordinate.latitude
-      let long = currentLocation?.coordinate.longitude
-      
-      searchVenue(withLat: "\(lat!)", long: "\(long!)")
-    }
-  }
-
-  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-    // TODO: return error when necessary
-  }
 }
