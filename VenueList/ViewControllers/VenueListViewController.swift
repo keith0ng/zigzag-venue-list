@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import SVProgressHUD
 
 let BASE_REQUEST_URL = "https://api.foursquare.com/v2"
 let CLIENT_ID = "GV3MMILBCDYQBQMAQN45JCYUENGJU1AVFFVFX3RSIV4FCU0C"
@@ -24,6 +25,7 @@ class VenueListViewController: UIViewController {
   var venueArray: [Venue]? = [] {
     didSet {
       DispatchQueue.main.async {
+        SVProgressHUD.dismiss()
         self.mainView?.venueTableView.reloadData()
       }
     }
@@ -61,7 +63,7 @@ class VenueListViewController: UIViewController {
     let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, err -> Void in
       self.venueArray = self.getVenuesFromData(data)
     })
-    
+    SVProgressHUD.show()
     task.resume()
   }
   
