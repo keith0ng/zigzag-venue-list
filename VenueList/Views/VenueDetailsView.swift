@@ -9,6 +9,10 @@
 import UIKit
 
 class VenueDetailsView: UIView {
+  
+  @IBOutlet weak var venueNameLabel: UILabel!
+  @IBOutlet weak var venueAddressLabel: UILabel!
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupView()

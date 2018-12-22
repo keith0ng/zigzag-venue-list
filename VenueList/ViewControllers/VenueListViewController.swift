@@ -31,13 +31,16 @@ class VenueListViewController: UIViewController {
   
   var mainView: VenueListView?
   
+  override func loadView() {
+    mainView = VenueListView()
+    view = mainView
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    mainView = VenueListView()
     mainView?.venueTableView.delegate = self
     mainView?.venueTableView.dataSource = self
-    view = mainView
     
     locManager.delegate = self
     locManager.requestWhenInUseAuthorization()
@@ -92,6 +95,7 @@ extension VenueListViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let venueDetailsVC = VenueDetailsViewController()
+    venueDetailsVC.venue = venueArray![indexPath.row]
     navigationController?.pushViewController(venueDetailsVC, animated: true)
   }
 }

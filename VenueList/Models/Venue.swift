@@ -13,7 +13,7 @@ struct Venue: Codable {
   var location: Location?
   
   struct Location: Codable {
-    var formattedAddress: [String?]
+    var formattedAddress: [String]?
     var distance: Int?
   }
 }
