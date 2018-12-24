@@ -10,12 +10,12 @@ import UIKit
 import CoreLocation
 import SVProgressHUD
 
-let BASE_REQUEST_URL = "https://api.foursquare.com/v2"
-let CLIENT_ID = "GV3MMILBCDYQBQMAQN45JCYUENGJU1AVFFVFX3RSIV4FCU0C"
-let CLIENT_SECRET = "PFO01BN4UHZDH5VJJOJNFK34YTWSEJJIX0LVP1HRN0R2WZNY"
-let API_VERSION = "20181219"
-let TEST_LAT = 14.558929
-let TEST_LONG = 121.01643113
+fileprivate let BASE_REQUEST_URL = "https://api.foursquare.com/v2"
+fileprivate let CLIENT_ID = "GV3MMILBCDYQBQMAQN45JCYUENGJU1AVFFVFX3RSIV4FCU0C"
+fileprivate let CLIENT_SECRET = "PFO01BN4UHZDH5VJJOJNFK34YTWSEJJIX0LVP1HRN0R2WZNY"
+fileprivate let API_VERSION = "20181219"
+fileprivate let TEST_LAT = 14.558929
+fileprivate let TEST_LONG = 121.01643113
 
 class VenueListViewController: UIViewController {
 
@@ -41,8 +41,12 @@ class VenueListViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    mainView?.venueTableView.delegate = self
-    mainView?.venueTableView.dataSource = self
+    guard let mainView = mainView else {
+      return
+    }
+    
+    mainView.venueTableView.delegate = self
+    mainView.venueTableView.dataSource = self
     
     locManager.delegate = self
     locManager.requestWhenInUseAuthorization()
