@@ -9,6 +9,9 @@
 import Foundation
 import CoreLocation
 
+fileprivate let TEST_LAT = 14.558929
+fileprivate let TEST_LONG = 121.01643113
+
 extension VenueListViewController: CLLocationManagerDelegate {
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
